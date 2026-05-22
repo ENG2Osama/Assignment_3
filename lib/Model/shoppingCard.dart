@@ -21,7 +21,8 @@ class Shoppingcard extends ChangeNotifier {
         "Count": Count,
       },
     ]);
-    total();
+
+    _totalPrice += int.parse(price);
 
     notifyListeners();
   }
@@ -34,6 +35,7 @@ class Shoppingcard extends ChangeNotifier {
 
   get totalPrice => _totalPrice;
   void total() {
+    _totalPrice = 0;
     ShoppingcardList.forEach((e) {
       _totalPrice += int.parse(e["price"]);
     });
