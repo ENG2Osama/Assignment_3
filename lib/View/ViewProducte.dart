@@ -24,40 +24,38 @@ class ViewProducte extends StatelessWidget {
             Container(
               height: 170,
               width: 240,
-
+              alignment: Alignment.center,
               decoration: BoxDecoration(
                 image: DecorationImage(
+                  alignment: Alignment.center,
                   image: NetworkImage(LinkImage),
                   fit: BoxFit.fill,
                 ),
               ),
             ),
             SizedBox(height: 5),
-            Row(
-              children: [
-                Container(
-                  margin: EdgeInsets.only(right: 3),
-                  child: Text(
-                    nameProduct,
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
-                ),
-              ],
+
+            Container(
+              alignment: Alignment.topLeft,
+
+              margin: EdgeInsets.only(right: 3),
+              child: Text(
+                nameProduct,
+                overflow: TextOverflow.ellipsis,
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
             ),
+
             SizedBox(height: 5),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Container(
-                  margin: EdgeInsets.only(right: 3),
-                  child: Text(
-                    '$price \$',
-                    style: Theme.of(
-                      context,
-                    ).textTheme.bodySmall!.copyWith(color: Colors.orange),
-                  ),
-                ),
-              ],
+
+            Container(
+              margin: EdgeInsets.only(right: 3),
+              child: Text(
+                '$price \$',
+                style: Theme.of(
+                  context,
+                ).textTheme.bodySmall!.copyWith(color: Colors.orange),
+              ),
             ),
           ],
         ),

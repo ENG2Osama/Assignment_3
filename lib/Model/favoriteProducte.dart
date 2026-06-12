@@ -13,7 +13,7 @@ class FavoriteProducte extends ChangeNotifier {
     favoriteProducts!.addAll([
       {
         "id": id,
-        "name": name,
+        "title": name,
         "description": description,
         "price": price,
         "image": linkImage,

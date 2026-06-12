@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class Shoppingcard extends ChangeNotifier {
   List<Map<String, dynamic>> ShoppingcardList = [];
-  int _totalPrice = 0;
+  double _totalPrice = 0;
   void addShoppingcard({
-    required String name,
+    required String title,
     required String description,
     required String id,
     required String price,
@@ -14,7 +14,7 @@ class Shoppingcard extends ChangeNotifier {
     ShoppingcardList!.addAll([
       {
         "id": id,
-        "name": name,
+        "title": title,
         "description": description,
         "price": price,
         "image": linkImage,
@@ -22,7 +22,7 @@ class Shoppingcard extends ChangeNotifier {
       },
     ]);
 
-    _totalPrice += int.parse(price);
+    _totalPrice += double.parse(price);
 
     notifyListeners();
   }
@@ -37,7 +37,7 @@ class Shoppingcard extends ChangeNotifier {
   void total() {
     _totalPrice = 0;
     ShoppingcardList.forEach((e) {
-      _totalPrice += int.parse(e["price"]);
+      _totalPrice += double.parse(e["price"]);
     });
   }
 }

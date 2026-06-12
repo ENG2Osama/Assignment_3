@@ -62,7 +62,7 @@ class Detailsproducte extends StatelessWidget {
                 onPressed: () {
                   value.addShoppingcard(
                     Count: 1,
-                    name: nameProduct,
+                    title: nameProduct,
                     description: description,
                     id: id,
                     price: price,

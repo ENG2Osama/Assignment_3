@@ -33,8 +33,10 @@ class FavoriteProducts extends StatelessWidget {
                         ),
                         itemBuilder: (context, index) => ViewProducte(
                           LinkImage: value.favoriteProducts[index]["image"],
-                          nameProduct: value.favoriteProducts[index]["name"],
-                          price: value.favoriteProducts[index]["price"],
+                          nameProduct:
+                              "${value.favoriteProducts[index]["title"]}",
+                          price: value.favoriteProducts[index]["price"]
+                              .toString(),
                         ),
                         itemCount: value.favoriteProducts.length,
                       ),
