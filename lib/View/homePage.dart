@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:assignment2/Model/BottomNavigationBar.dart';
+import 'package:assignment2/View/ProfilePage.dart';
 import 'package:assignment2/View/ViewCard.dart';
 import 'package:assignment2/View/favoriteProducts.dart';
 import 'package:assignment2/View/homeScreen.dart';
@@ -13,7 +14,7 @@ class Homepage extends StatelessWidget {
     homeScreen(),
     ViewShoppingCard(),
     FavoriteProducts(),
-    Center(child: Text('قيد التطوير')),
+    ProfilePage(),
   ];
   @override
   Widget build(BuildContext context) {

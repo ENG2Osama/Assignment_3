@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:assignment2/Model/favoriteProducte.dart';
+import 'package:assignment2/Model/product.dart';
 import 'package:assignment2/Model/shoppingCard.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -97,30 +98,30 @@ class Detailsproducte extends StatelessWidget {
             ),
             Consumer<FavoriteProducte>(
               builder: (context, value, child) {
-                int index = value.favoriteProducts.indexWhere(
-                  (element) => element["id"] == id,
+                final index = value.favoriteProducts.indexWhere(
+                  (element) => element.id == id,
                 );
-
-                bool isFavorite = index != -1;
+                final isFavorite = index != -1;
+                final product = Product(
+                  id: id,
+                  title: nameProduct,
+                  description: description,
+                  price: double.tryParse(price) ?? 0,
+                  image: linkImage,
+                );
                 return IconButton(
                   iconSize: 35,
                   color: Colors.red,
                   onPressed: () {
                     if (!isFavorite) {
-                      value.addFavoriteProducte(
-                        name: nameProduct,
-                        description: description,
-                        id: id,
-                        price: price,
-                        linkImage: linkImage,
-                      );
+                      value.addFavoriteProduct(product);
                     } else {
-                      value.removeFavoriteProducte(index);
+                      value.removeFavoriteProduct(id);
                     }
                   },
                   icon: isFavorite
-                      ? Icon(Icons.favorite)
-                      : Icon(Icons.favorite_outline_sharp),
+                      ? const Icon(Icons.favorite)
+                      : const Icon(Icons.favorite_outline_sharp),
                 );
               },
             ),

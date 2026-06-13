@@ -12,7 +12,7 @@ class FavoriteProducts extends StatelessWidget {
       body: Container(
         padding: EdgeInsets.all(7),
         width: double.infinity,
-        child: context.read<FavoriteProducte>().favoriteProducts.isNotEmpty
+        child: context.watch<FavoriteProducte>().favoriteProducts.isNotEmpty
             ? Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
@@ -22,9 +22,9 @@ class FavoriteProducts extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   SizedBox(height: 10),
-                  Consumer<FavoriteProducte>(
-                    builder: (context, value, child) => Expanded(
-                      child: GridView.builder(
+                  Expanded(
+                    child: Consumer<FavoriteProducte>(
+                      builder: (context, value, child) => GridView.builder(
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
                           mainAxisExtent: 260,
@@ -32,11 +32,10 @@ class FavoriteProducts extends StatelessWidget {
                           mainAxisSpacing: 10.0,
                         ),
                         itemBuilder: (context, index) => ViewProducte(
-                          LinkImage: value.favoriteProducts[index]["image"],
-                          nameProduct:
-                              "${value.favoriteProducts[index]["title"]}",
-                          price: value.favoriteProducts[index]["price"]
-                              .toString(),
+                          LinkImage: value.favoriteProducts[index].image,
+                          nameProduct: value.favoriteProducts[index].title,
+                          price: value.favoriteProducts[index].price
+                              .toStringAsFixed(2),
                         ),
                         itemCount: value.favoriteProducts.length,
                       ),

@@ -22,7 +22,7 @@ class ViewProducte extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Container(
-              height: 170,
+              height: 165,
               width: 240,
               alignment: Alignment.center,
               decoration: BoxDecoration(
@@ -36,7 +36,7 @@ class ViewProducte extends StatelessWidget {
             SizedBox(height: 5),
 
             Container(
-              alignment: Alignment.topLeft,
+              alignment: Alignment.topRight,
 
               margin: EdgeInsets.only(right: 3),
               child: Text(
@@ -45,9 +45,7 @@ class ViewProducte extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodySmall,
               ),
             ),
-
             SizedBox(height: 5),
-
             Container(
               margin: EdgeInsets.only(right: 3),
               child: Text(
